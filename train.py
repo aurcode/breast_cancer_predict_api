@@ -18,7 +18,7 @@ from sklearn.metrics import roc_auc_score
 V = 1.0  # Version
 depth = 2
 min_samples_leaf = 10
-output_file = f"model_={V}.bin"
+output_file = f"model{V}.bin"
 
 
 # data preparation

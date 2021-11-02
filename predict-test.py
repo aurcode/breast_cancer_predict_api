@@ -6,7 +6,7 @@ import requests
 
 url = "http://localhost:9696/predict"
 
-customer_name = "Liz"
+customer_name = "Lisi"
 
 patient = {
     "mean radius": 17.99,
@@ -41,5 +41,7 @@ patient = {
     "worst fractal dimension": 0.11890,
 }
 
-response = requests.post(url, json=patient).json()
+# print(patient)
+
+response = requests.post(url, json=patient)  # .json()
 print(response)
