@@ -16,20 +16,11 @@ app = Flask("breastcancer")
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    # return "PONG"
     patient = request.get_json()
+    y_pred = model.predict_proba([[i for i in patient.values()]])[0, 1]
+    malignant = y_pred >= 0.5
 
-    # print(type(patient))
-    X = pd.DataFrame(patient, index=patient.keys())
-    print(X)
-    print(type(X))
-    print(X)
-    print(model.predict([patient]))  # [0, 1])
-    # y_pred = model.predict_proba(patient)[0, 1]
-    # malignant = y_pred >= 0.5
-
-    # result = {"malignant_probability": float(y_pred), "malignant": bool(malignant)}
-    return "pong"
+    result = {"malignant_probability": float(y_pred), "malignant": bool(malignant)}
     return jsonify(result)
 
 
