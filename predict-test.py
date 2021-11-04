@@ -6,8 +6,6 @@ import requests
 
 url = "http://localhost:9696/predict"
 
-customer_name = "Liz"
-
 patient = {
     "mean radius": 17.99,
     "mean texture": 10.38,
